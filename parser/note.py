@@ -1,5 +1,6 @@
 import json
 import datetime
+import pypandoc
 
 
 class Note():
@@ -19,6 +20,14 @@ class Note():
         if file is not None:
             self.__add_attrs(file)
 
+    def change_format(self, new_format):
+        """Change content format using pypandoc. Initializes as Markdown"""
+        self.content = pypandoc.convert_text(
+            self.content,
+            new_format,
+            format=self.content_format,
+            extra_args=['--mathjax'])
+
     def __load_note(self, file):
         """Load file to JSON"""
         with open(file, 'r') as file_hdr:
@@ -32,7 +41,7 @@ class Note():
         for key in note_json:
             setattr(self, key, note_json[key])
 
-        self.content_format = 'markdown'
+        self.content_format = 'md'
 
     def __repr__(self):
         return "<Note: {0}>".format(self.title)
