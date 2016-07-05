@@ -18,7 +18,7 @@ class Note():
         self.updated = datetime.datetime.now()
 
         if file is not None:
-            self.__add_attrs(file)
+            self._add_attrs(file)
 
     def change_format(self, new_format):
         """Change content format using pypandoc. Initializes as Markdown"""
@@ -28,16 +28,16 @@ class Note():
             format=self.content_format,
             extra_args=['--mathjax'])
 
-    def __load_note(self, file):
+    def _load_note(self, file):
         """Load file to JSON"""
         with open(file, 'r') as file_hdr:
             note_json = json.load(file_hdr)
 
         return note_json
 
-    def __add_attrs(self, file):
+    def _add_attrs(self, file):
         """Adds all the JSON keys as Note attributes"""
-        note_json = self.__load_note(file)
+        note_json = self._load_note(file)
         for key in note_json:
             setattr(self, key, note_json[key])
 

@@ -1,5 +1,6 @@
 import os
 
+from parser.note import Note
 from parser.notebook import Notebook
 from parser.notebooktree import NotebookTree
 
@@ -20,5 +21,21 @@ while(notebook_list != []):
     if cnt < 10:
         print(notebook_list)
 
-print(mytree.get_root_nb().get_children())
-print(mytree.get_print_tree())
+# debug this printing plz, shows entire recrusion tree
+# print(mytree.get_print_tree())
+
+os.chdir('../notes')
+note_list = [Note(x) for x in os.listdir()]
+print([nt.title for nt in note_list])
+
+cnt = 0
+while(note_list != 0):
+    valid = mytree.add_note(note_list[0])
+    cnt = cnt + 1
+    if valid == -1:
+        note_list.append(note_list.pop(0))
+    else:
+        del note_list[0]
+
+    if cnt < 10:
+        print(note_list)

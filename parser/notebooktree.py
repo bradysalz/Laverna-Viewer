@@ -13,7 +13,7 @@ class NotebookTree():
                 self.add_notebook(notebook)
 
     def add_child_notebook(self, new_notebook):
-        parent = self._find_parent_nb(self._root, new_notebook)
+        parent = self._find_parent_nb(self._root, new_notebook.parentId)
         if parent is not None:
             parent.add_child(new_notebook)
             return 'yes'
@@ -21,6 +21,15 @@ class NotebookTree():
             # wrong parent - raise error
             # raise WrongParentId
             return 'nope'
+
+    def add_note(self, new_note):
+        """Recursively searches the tree to find the notebook to add the note to. Returns -1 if no parent notebook is found."""
+        par_id = new_note.notebookId
+        parent_notebook = self._find_parent_nb(self._root, par_id)
+        if parent_notebook is not None:
+            parent_notebook.notes.append(new_note)
+        else:
+            return -1
 
     def get_print_tree(self):
         curr_str = '\n'
@@ -42,15 +51,15 @@ class NotebookTree():
     def get_root_nb(self):
         return self._root
 
-    def _find_parent_nb(self, curr_notebook, new_notebook):
+    def _find_parent_nb(self, curr_notebook, new_notebook_id):
         """jesus christ why is my girlfriend so smart. jk i fixed the recursion bug, take that"""
-        if curr_notebook.id == new_notebook.parentId:
+        if curr_notebook.id == new_notebook_id:
             return curr_notebook
         elif curr_notebook.children == []:
             return None
         else:
             for child in curr_notebook.children:
-                recurse = self._find_parent_nb(child, new_notebook)
+                recurse = self._find_parent_nb(child, new_notebook_id)
                 if recurse is not None:
                     return recurse
 
