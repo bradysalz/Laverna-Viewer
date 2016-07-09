@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{# Recursively generate sitemap #}
+{% block table_of_contents %}
+<div class="list-group list-group-root well">
+{% for notebook in root_nb.children recursive %}
+    <a href="#{{ notebook.id }}" class="list-group-item" data-toggle="collapse">
+        <i class="glyphicon glyphicon-chevron-right"></i>{{notebook.name}}
+    </a>
+    {% for note in notebook.notes %}
+        {# print all notes here #}
+        {{ note.title }}
+    {% endfor %}
+
+    {% if notebook.children %}
+        {{ loop(notebook.children) }}
+    {% endif %}
+
+{% endfor %}
+</div>
+{% endblock %}
+
+
+{# Display a note #}
+{% block content %}
+    {% if note %}
+        {{ note }}
+    {% else %}
+        <h1>Lavera Note Viewer</h1>
+    {% endif %}
+{% endblock %}

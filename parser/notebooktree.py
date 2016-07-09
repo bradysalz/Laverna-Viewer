@@ -15,24 +15,25 @@ class NotebookTree():
                 self.add_notebook(notebook)
 
     def add_child_notebook(self, new_notebook):
-        """Adds a notebook to the tree. Automatically finds correct parent"""
+        """Adds a notebook to the tree.
+
+        Recurses through the tree to find parent. Returns -1 if parent
+        not found OR if notebook is marked as 'trashed'."""
         if new_notebook.trash != 0:
-            return
+            return -1
 
         parent = self._find_parent_nb(self._root, new_notebook.parentId)
         if parent is not None:
             parent.add_child(new_notebook)
-            return 'yes'
         else:
-            # wrong parent - raise error
-            # raise WrongParentId
-            return 'nope'
+            return -1
 
     def add_note(self, new_note):
         """Recursively searches the tree to find the notebook to add the
-        note to. Returns -1 if no parent notebook is found."""
+        note to. Returns -1 if no parent notebook is found or note
+        is marked as 'trashed'."""
         if new_note.trash != 0:
-            return
+            return -1
 
         par_id = new_note.notebookId
         parent_notebook = self._find_parent_nb(self._root, par_id)
@@ -47,7 +48,8 @@ class NotebookTree():
     def _build_tree_string(self, curr_nb, depth):
         """Prints out the NotebokTree.
 
-        Recurses over all notebooks (NB:) and notes"""
+        Recurses over all notebooks (NB:) and notes. Should only be used for
+        debugging."""
         spacing = depth * '  '
         print(spacing + '|-- ' + curr_nb.name)
 

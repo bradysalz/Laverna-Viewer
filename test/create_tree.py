@@ -14,7 +14,7 @@ cnt = 0
 while(notebook_list != []):
     valid = mytree.add_child_notebook(notebook_list[0])
     cnt = cnt + 1
-    if valid == 'nope':
+    if valid == -1:
         notebook_list.append(notebook_list.pop(0))
     else:
         del notebook_list[0]
