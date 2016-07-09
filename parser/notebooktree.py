@@ -2,7 +2,9 @@ from parser.notebook import Notebook
 
 
 class NotebookTree():
-    """A NotebookTree represents our Laverna notebook structure. Each node in tree is a Notebook. We initialize it as a strucutre containing a root node with a blank Notebook and a no parentId."""
+    """A NotebookTree represents our Laverna notebook structure.
+    Each node in tree is a Notebook. We initialize it as a strucutre
+    containing a root node with a blank Notebook and a no parentId."""
 
     def __init__(self, notebook_list=None):
         self._root = Notebook()
@@ -13,6 +15,10 @@ class NotebookTree():
                 self.add_notebook(notebook)
 
     def add_child_notebook(self, new_notebook):
+        """Adds a notebook to the tree. Automatically finds correct parent"""
+        if new_notebook.trash != 0:
+            return
+
         parent = self._find_parent_nb(self._root, new_notebook.parentId)
         if parent is not None:
             parent.add_child(new_notebook)
@@ -23,7 +29,11 @@ class NotebookTree():
             return 'nope'
 
     def add_note(self, new_note):
-        """Recursively searches the tree to find the notebook to add the note to. Returns -1 if no parent notebook is found."""
+        """Recursively searches the tree to find the notebook to add the
+        note to. Returns -1 if no parent notebook is found."""
+        if new_note.trash != 0:
+            return
+
         par_id = new_note.notebookId
         parent_notebook = self._find_parent_nb(self._root, par_id)
         if parent_notebook is not None:
@@ -32,27 +42,31 @@ class NotebookTree():
             return -1
 
     def get_print_tree(self):
-        curr_str = '\n'
-        return self._build_tree_string(self._root, curr_str, 1)
+        return self._build_tree_string(self._root, 0)
 
-    def _build_tree_string(self, curr_nb, tree_str, depth):
-        """please fix this recursively! currently prints out whole tree which is dumb."""
-        for i in range(depth):
-            tree_str += '  '
-        tree_str += '|-- ' + curr_nb.name + '\n'
+    def _build_tree_string(self, curr_nb, depth):
+        """Prints out the NotebokTree.
+
+        Recurses over all notebooks (NB:) and notes"""
+        spacing = depth * '  '
+        print(spacing + '|-- ' + curr_nb.name)
+
+        for nt in curr_nb.notes:
+            spacing = (depth + 1) * '  '
+            print(spacing + '> ' + nt.title)
 
         if curr_nb.children == []:
-            return tree_str
+            pass
         else:
             for nb in curr_nb.children:
-                tree_str += self._build_tree_string(nb, tree_str, depth + 1)
-            return tree_str
+                self._build_tree_string(nb, depth + 1)
 
     def get_root_nb(self):
         return self._root
 
     def _find_parent_nb(self, curr_notebook, new_notebook_id):
-        """jesus christ why is my girlfriend so smart. jk i fixed the recursion bug, take that"""
+        """Recurses through the NotebookTree to find the parent
+        notebook, else returns None."""
         if curr_notebook.id == new_notebook_id:
             return curr_notebook
         elif curr_notebook.children == []:

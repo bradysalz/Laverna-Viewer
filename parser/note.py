@@ -4,7 +4,9 @@ import pypandoc
 
 
 class Note():
-    """The Note Class is the core class. It represents a single Laverna Note file. While it primarily just reads in the JSON file to a class, we also can change the content format (using pandoc)."""
+    """The Note Class is the core class. It represents a single Laverna Note
+    file. While it primarily just reads in the JSON file to a class, we also
+    can change the content format (using pandoc)."""
 
     def __init__(self, file=None):
         # initialize the important keys used elsewhere
@@ -19,6 +21,7 @@ class Note():
 
         if file is not None:
             self._add_attrs(file)
+            self.notebookId = str(self.notebookId)
 
     def change_format(self, new_format):
         """Change content format using pypandoc. Initializes as Markdown"""

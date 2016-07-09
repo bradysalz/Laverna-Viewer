@@ -21,15 +21,18 @@ while(notebook_list != []):
     if cnt < 10:
         print(notebook_list)
 
-# debug this printing plz, shows entire recrusion tree
-# print(mytree.get_print_tree())
+print(mytree.get_print_tree())
+
+#########################################
+# Test Note Insertion
+#########################################
 
 os.chdir('../notes')
 note_list = [Note(x) for x in os.listdir()]
-print([nt.title for nt in note_list])
+print([type(nt.notebookId) for nt in note_list])
 
 cnt = 0
-while(note_list != 0):
+while(note_list != []):
     valid = mytree.add_note(note_list[0])
     cnt = cnt + 1
     if valid == -1:
@@ -37,5 +40,4 @@ while(note_list != 0):
     else:
         del note_list[0]
 
-    if cnt < 10:
-        print(note_list)
+print(mytree.get_print_tree())

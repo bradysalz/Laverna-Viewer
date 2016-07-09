@@ -4,7 +4,10 @@ from parser.note import Note
 
 
 class Notebook():
-    """A Notebook represents a Laverna Notebook. It can hold both Notes and Notebooks. Notes are accessed through the Notes attribute. Notebooks are accessed through either the children or parent attribute, which points to the respective Notebook in the tree"""
+    """A Notebook represents a Laverna Notebook. It can hold both Notes
+    and Notebooks. Notes are accessed through the Notes attribute.
+    Notebooks are accessed through either the children or parent
+    attribute, which points to the respective Notebook in the tree."""
 
     def __init__(self, file_name=None):
         # initialize important paramers used elsewhere
@@ -17,6 +20,7 @@ class Notebook():
 
         if file_name is not None:
             self._load_notebook(file_name)
+            self.parentId = str(self.parentId)
 
     def add_note(self, new_note=None, note_file=None):
         if new_note is not None:
@@ -41,7 +45,8 @@ class Notebook():
         self.children.append(new_notebook)
 
     def change_child_format(self, new_format):
-        """Set the content format of all child Notes. Applies recursively (to child Notebooks) as well."""
+        """Set the content format of all child Notes. Applies recursively
+        (to child Notebooks) as well."""
         # change all current notes
         for note in self.notes:
             note.change_format(new_format)
