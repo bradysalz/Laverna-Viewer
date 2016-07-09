@@ -7,15 +7,17 @@
     <a href="#{{ notebook.id }}" class="list-group-item" data-toggle="collapse">
         <i class="glyphicon glyphicon-chevron-right"></i>{{notebook.name}}
     </a>
+    <div class="list-group collapse" id="{{ notebook.id }}">
+    
     {% for note in notebook.notes %}
-        {# print all notes here #}
-        {{ note.title }}
+        <a href="#" class="list-group-item">{{ note.title }}</a>
     {% endfor %}
 
     {% if notebook.children %}
         {{ loop(notebook.children) }}
     {% endif %}
 
+    </div>
 {% endfor %}
 </div>
 {% endblock %}

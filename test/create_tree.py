@@ -21,7 +21,7 @@ while(notebook_list != []):
     if cnt < 10:
         print(notebook_list)
 
-print(mytree.get_print_tree())
+print(mytree.print_tree())
 
 #########################################
 # Test Note Insertion
@@ -40,4 +40,4 @@ while(note_list != []):
     else:
         del note_list[0]
 
-print(mytree.get_print_tree())
+print(mytree.print_tree())

@@ -20,7 +20,7 @@ class NotebookTree():
         Recurses through the tree to find parent. Returns -1 if parent
         not found OR if notebook is marked as 'trashed'."""
         if new_notebook.trash != 0:
-            return -1
+            return
 
         parent = self._find_parent_nb(self._root, new_notebook.parentId)
         if parent is not None:
@@ -33,7 +33,7 @@ class NotebookTree():
         note to. Returns -1 if no parent notebook is found or note
         is marked as 'trashed'."""
         if new_note.trash != 0:
-            return -1
+            return
 
         par_id = new_note.notebookId
         parent_notebook = self._find_parent_nb(self._root, par_id)
@@ -42,7 +42,7 @@ class NotebookTree():
         else:
             return -1
 
-    def get_print_tree(self):
+    def print_tree(self):
         return self._build_tree_string(self._root, 0)
 
     def _build_tree_string(self, curr_nb, depth):
