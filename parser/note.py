@@ -1,9 +1,6 @@
+import subprocess
 import json
 import datetime
-import pypandoc
-import os
-
-os.environ.setdefault('PYPANDOC_PANDOC', '/usr/bin/pandoc')
 
 
 class Note():
@@ -28,11 +25,14 @@ class Note():
 
     def change_format(self, new_format):
         """Change content format using pypandoc. Initializes as Markdown"""
-        self.content = pypandoc.convert(
-            self.content,
-            new_format,
-            format=self.content_format,
-            extra_args=['--mathjax'])
+        args = ['pandoc', '-f', self.content_format, '-t',
+                new_format, '--mathjax']
+
+        p1 = subprocess.Popen(args, stdin=subprocess.PIPE,
+                              stdout=subprocess.PIPE)
+
+        p1.stdin.write(self.content.encode())
+        self.content = p1.communicate()[0].decode()
         self.content_format = new_format
 
     def _load_note(self, file):
@@ -48,7 +48,7 @@ class Note():
         for key in note_json:
             setattr(self, key, note_json[key])
 
-        self.content_format = 'md'
+        self.content_format = 'markdown'
 
     def __repr__(self):
         return "<Note: {0}>".format(self.title)
