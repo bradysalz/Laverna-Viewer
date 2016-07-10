@@ -25,11 +25,12 @@ class Note():
 
     def change_format(self, new_format):
         """Change content format using pypandoc. Initializes as Markdown"""
-        self.content = pypandoc.convert_text(
+        self.content = pypandoc.convert(
             self.content,
             new_format,
             format=self.content_format,
             extra_args=['--mathjax'])
+        self.content_format = new_format
 
     def _load_note(self, file):
         """Load file to JSON"""

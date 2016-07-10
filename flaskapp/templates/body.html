@@ -8,9 +8,9 @@
         <i class="glyphicon glyphicon-chevron-right"></i>{{notebook.name}}
     </a>
     <div class="list-group collapse" id="{{ notebook.id }}">
-    
+
     {% for note in notebook.notes %}
-        <a href="#" class="list-group-item">{{ note.title }}</a>
+        <a href="#" onclick="load_note('/note/{{ notebook.id }}/{{ note.id  }}')" class="list-group-item">{{ note.title }}</a>
     {% endfor %}
 
     {% if notebook.children %}
@@ -20,14 +20,4 @@
     </div>
 {% endfor %}
 </div>
-{% endblock %}
-
-
-{# Display a note #}
-{% block content %}
-    {% if note %}
-        {{ note }}
-    {% else %}
-        <h1>Lavera Note Viewer</h1>
-    {% endif %}
 {% endblock %}

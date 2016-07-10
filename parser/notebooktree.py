@@ -42,6 +42,13 @@ class NotebookTree():
         else:
             return -1
 
+    def get_note(self, nb_id, note_id):
+        par_nb = self._find_parent_nb(self.get_root_nb(), nb_id)
+        for note in par_nb.notes:
+            if note.id == note_id:
+                return note
+        return None
+
     def print_tree(self):
         return self._build_tree_string(self._root, 0)
 
@@ -66,16 +73,16 @@ class NotebookTree():
     def get_root_nb(self):
         return self._root
 
-    def _find_parent_nb(self, curr_notebook, new_notebook_id):
+    def _find_parent_nb(self, curr_notebook, new_nb_par_id):
         """Recurses through the NotebookTree to find the parent
         notebook, else returns None."""
-        if curr_notebook.id == new_notebook_id:
+        if curr_notebook.id == new_nb_par_id:
             return curr_notebook
         elif curr_notebook.children == []:
             return None
         else:
             for child in curr_notebook.children:
-                recurse = self._find_parent_nb(child, new_notebook_id)
+                recurse = self._find_parent_nb(child, new_nb_par_id)
                 if recurse is not None:
                     return recurse
 
