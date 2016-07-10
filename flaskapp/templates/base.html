@@ -17,7 +17,6 @@
         <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
     <!--<![endif]-->
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nested-list.css')}}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css">	
 
 	<!-- Collapsible Lists Snippet -->
 	<script type="text/javascript">
@@ -32,22 +31,23 @@
     function load_note(callback_url) {
         $("#content").load(callback_url, function() {
             MathJax.Hub.Queue(["Typeset", MathJax.Hub, "content"]);
+            $('table').addClass('pure-table pure-table-bordered');   
         });
     }
+
     </script>
-    <!-- Notebook item callback -->
 </head>
 
 <body>
     <div class="pure-g">
         <div class="pure-u-1-4">
+            <div id="toc">
             {% block table_of_contents %}
             {% endblock %}
+            </div>
         </div>
 
-        <div class="pure-u-1-12"></div>
-
-        <div class="pure-u-1-2" id="content">
+        <div class="pure-u-1-3" id="content">
         </div> 
     </div>
 </html>

@@ -13,7 +13,8 @@ def hello_world():
 @app.route('/note/<nb_id>/<note_id>')
 def load_note(nb_id, note_id):
     note = tree.get_note(nb_id, note_id)
-    note.change_format('html')
+    if note.content_format != 'html':
+        note.change_format('html')
     return note.content
     # return render_template('body.html',
     #                          root_nb=tree.get_root_nb(),

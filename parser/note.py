@@ -24,7 +24,8 @@ class Note():
             self.notebookId = str(self.notebookId)
 
     def change_format(self, new_format):
-        """Change content format using pypandoc. Initializes as Markdown"""
+        """Change content format using pandoc in a shell.
+        Initializes as Markdown."""
         args = ['pandoc', '-f', self.content_format, '-t',
                 new_format, '--mathjax']
 
@@ -33,6 +34,8 @@ class Note():
 
         p1.stdin.write(self.content.encode())
         self.content = p1.communicate()[0].decode()
+        self.content = self.content.replace('\\\\', '\\')
+        self.content = self.content.replace('\\n', '')
         self.content_format = new_format
 
     def _load_note(self, file):
