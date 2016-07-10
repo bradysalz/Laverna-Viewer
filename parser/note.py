@@ -1,6 +1,9 @@
 import json
 import datetime
 import pypandoc
+import os
+
+os.environ.setdefault('PYPANDOC_PANDOC', '/usr/bin/pandoc')
 
 
 class Note():
