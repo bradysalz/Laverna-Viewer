@@ -45,6 +45,13 @@
             {% block table_of_contents %}
             {% endblock %}
             </div>
+            <div id="refresh">
+            	<form action="/refresh" method="post">
+            		<button type="submit" class="pure-button pure-button-primary">
+				<span class="glyphicon glyphicon-refresh"></span>	
+			</button>
+            	</form>
+            </div>
         </div>
 
         <div class="pure-u-1-3" id="content">
