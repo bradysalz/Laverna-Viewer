@@ -41,16 +41,16 @@
 <body>
     <div class="pure-g">
         <div class="pure-u-1-4">
+            <div id="refresh">
+                <form action="/refresh" method="post">
+                    <button type="submit" class="pure-button pure-button-primary">
+                        <span class="glyphicon glyphicon-refresh"> Refresh</span>   
+                     </button>
+                </form>
+            </div>
             <div id="toc">
             {% block table_of_contents %}
             {% endblock %}
-            </div>
-            <div id="refresh">
-            	<form action="/refresh" method="post">
-            		<button type="submit" class="pure-button pure-button-primary">
-				<span class="glyphicon glyphicon-refresh"></span>	
-			</button>
-            	</form>
             </div>
         </div>
 

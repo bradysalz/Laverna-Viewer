@@ -15,3 +15,4 @@ Flask webapp that converts Lavera Notebook to HTML viewer.
 * Add pdf support?
 * Add details pane
 * Add refresh button
+* Add sorting (by create date probably)
