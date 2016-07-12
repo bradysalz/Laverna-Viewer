@@ -1,6 +1,8 @@
+import os
 from flaskapp import app
-from flask import render_template
+from flask import render_template, send_file
 from flaskapp.tree_utils import build_tree
+from config import MEDIA_PATH
 
 tree = build_tree()
 
@@ -24,3 +26,9 @@ def load_note(nb_id, note_id):
 @app.route('/example')
 def example():
     return render_template('example.html')
+
+
+@app.route('/media/<path:img_path>')
+def load_media(img_path):
+    filename = os.path.join(MEDIA_PATH, img_path) 
+    return send_file(filename)
