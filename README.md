@@ -11,8 +11,4 @@ Flask webapp that converts Lavera Notebook to HTML viewer.
 ## TODO
 
 * Add password protection to certain notebooks
-* Add media lookup
 * Add pdf support?
-* Add details pane
-* Add refresh button
-* Add sorting (by create date probably)

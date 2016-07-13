@@ -1,10 +1,11 @@
 import os
 from flaskapp import app
-from flask import render_template, send_file
+from flask import render_template, send_file, jsonify
 from flaskapp.tree_utils import build_tree
 from flaskapp.config import MEDIA_PATH
 
 tree = build_tree()
+tree.order_by_create()
 
 
 @app.route('/')
@@ -17,7 +18,7 @@ def load_note(nb_id, note_id):
     note = tree.get_note(nb_id, note_id)
     if note.content_format != 'html':
         note.change_format('html')
-    return note.content
+    return jsonify(note.__dict__)
 
 
 @app.route('/refresh', methods=['POST'])
@@ -25,6 +26,7 @@ def refresh():
     """Rebuild the tree and return the homepage"""
     global tree
     tree = build_tree()
+    tree.order_by_create()
     return index()
 
 

@@ -52,6 +52,20 @@ class NotebookTree():
     def print_tree(self):
         return self._build_tree_string(self._root, 0)
 
+    def order_by_create(self):
+        """Orders all notebooks and notes by create date"""
+        self._order_all_by_created(self._root)
+
+    def _order_all_by_created(self, nb):
+        """Recursive helper to order all notebooks by create date"""
+        if nb.notes:
+            nb.notes = sorted(nb.notes, key=lambda x: x.created, reverse=True)
+        
+        if nb.children:
+            nb.children = sorted(nb.children, key=lambda x: x.created)
+            for child in nb.children:
+                self._order_all_by_created(child)
+
     def _build_tree_string(self, curr_nb, depth):
         """Prints out the NotebokTree.
 
@@ -87,4 +101,4 @@ class NotebookTree():
                     return recurse
 
     def __repr__(self):
-        return "<NotebookTree: {0}>".format(self.parentId)
+        return "<NotebookTree: {0}>".format(self._root)
