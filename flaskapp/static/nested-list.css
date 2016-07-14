@@ -32,7 +32,8 @@
     margin-right: 5px;
 }
 
-#toc {
+
+#detail, #toc {
     height: 100%;
     position: fixed;
     /*right: 0px;    */

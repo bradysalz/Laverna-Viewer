@@ -10,9 +10,11 @@
     <div class="list-group collapse" id="{{ notebook.id }}">
 
     {% for note in notebook.notes %}
-        <a href="#" onclick="load_note('/note/{{ notebook.id }}/{{ note.id  }}')" class="list-group-item">{{ note.title }}</a>
+        <a href="#" id="{{ note.id }}" onclick="load_note('/note/{{ notebook.id }}/{{ note.id  }}')" class="list-group-item">{{ note.title }}</a>
     {% endfor %}
 
+
+{# ADD NOTE ID TO NOTE OBJECT, THEN ADD ACTIVE CLASS IN CALLBACK #}
     {% if notebook.children %}
         {{ loop(notebook.children) }}
     {% endif %}
