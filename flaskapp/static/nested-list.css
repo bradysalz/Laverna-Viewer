@@ -16,6 +16,7 @@
     border-width: 1px 0 0 0;
 }
 
+/* too lazy to learn SASS or w/e */
 .list-group.list-group-root > .list-group-item:first-child {
     border-top-width: 0;
 }
@@ -28,14 +29,22 @@
     padding-left: 45px;
 }
 
+.list-group.list-group-root > .list-group > .list-group > .list-group >.list-group-item {
+    padding-left: 60px;
+}
+
 .list-group-item .glyphicon {
     margin-right: 5px;
 }
-
 
 #detail, #toc {
     height: 100%;
     position: fixed;
     /*right: 0px;    */
     /*top: 0px;*/
+}
+
+body {
+    background-color: #f3ece6;
+    color: #333333;
 }
