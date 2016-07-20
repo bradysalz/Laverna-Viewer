@@ -48,3 +48,8 @@ body {
     background-color: #f3ece6;
     color: #333333;
 }
+
+img {
+    max-width: 100%;
+    display: block;
+}
