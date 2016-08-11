@@ -5,15 +5,15 @@
 	<!-- Javascript Includes -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+    <script type="text=/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
     <script type="text/javascript" src="{{ url_for('static', filename='prism.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='awesomplete.js') }}"></script>
 
 	<!-- CSS Includes --> 
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/journal/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nested-list.css') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='prism.css') }}">
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='awesomplete.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nested-list.css') }}">
 
     <!-- lol favicons -->
     <link rel="icon" type="image/png" sizes="192x192"  href="{{ url_for('static', filename='android-icon-192x192.png') }}">
@@ -35,7 +35,9 @@
                                 <span class="glyphicon glyphicon-refresh"></span> Refresh
                              </button>
                         </form>
-                        <input class="form-control" id="autosearch" placeholder="Search" />
+                        <div class="awesomplete"> 
+                            <input class="form-control" id="autosearch" placeholder="Search" />
+                        </div>
                     </div>
                 {% block table_of_contents %}
                 {% endblock %}

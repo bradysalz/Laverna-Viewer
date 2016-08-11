@@ -53,3 +53,7 @@ img {
     max-width: 100%;
     display: block;
 }
+
+div.awesomplete > ul {
+    z-index: 3; /* bootstrap sets .input-group .form-control to 2 */
+}
