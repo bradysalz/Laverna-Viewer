@@ -6,76 +6,118 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script> 
+    <script type="text/javascript" src="{{ url_for('static', filename='prism.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='awesomplete.js') }}"></script>
 
 	<!-- CSS Includes --> 
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
-    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/journal/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nested-list.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='nested-list.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='prism.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='awesomplete.css') }}">
 
+    <!-- lol favicons -->
     <link rel="icon" type="image/png" sizes="192x192"  href="{{ url_for('static', filename='android-icon-192x192.png') }}">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon-32x32.png') }}">
     <link rel="icon" type="image/png" sizes="96x96" href="{{ url_for('static', filename='favicon-96x96.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon-16x16.png') }}">
 
     <title>Laverna Notes</title>
-    
-	<!-- Collapsible Lists Snippet -->
-	<script type="text/javascript">
-	$(function() {        
-		$('.list-group-item').on('click', function() {
-			$('.glyphicon', this)
-	  		.toggleClass('glyphicon-chevron-right')
-	  		.toggleClass('glyphicon-chevron-down');
-		});
-	});
-
-    function load_note(callback_url) {
-        $.getJSON(callback_url, function( data ) {
-            $('#content').html(data['content']);
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub, "content"]);
-            $('table').addClass('pure-table pure-table-bordered'); 
-            
-            var created = new Date(data['created']);
-            $('#create_date').html('Created: ' + created.toDateString());
-
-            var edited = new Date(data['updated']);
-            $('#edit_date').html('Changed: ' + edited.toDateString());
-
-            // Remove previous active and add new active
-            $('.active').removeClass('active');
-            $('#' + data['id']).addClass('active');
-        });
-    }
-    </script>
 </head>
 
 <body>
-    <div class="pure-g">
-        <div class="pure-u-1-4">
-            <div id="toc">
-                <div id="refresh">
-                    <form action="/refresh" method="post">
-                        <button type="submit" class="btn btn-info">
-                            <span class="glyphicon glyphicon-refresh"></span> Refresh
-                         </button>
-                    </form>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div id="toc">
+                    <div id="refresh">
+                        <form action="/refresh" method="post">
+                            <button type="submit" class="btn btn-info">
+                                <span class="glyphicon glyphicon-refresh"></span> Refresh
+                             </button>
+                        </form>
+                        <input class="form-control" id="autosearch" placeholder="Search" />
+                    </div>
+                {% block table_of_contents %}
+                {% endblock %}
                 </div>
-            {% block table_of_contents %}
-            {% endblock %}
+            </div>
+
+            <div class="col-md-4" id="note">
+                <h1 id='title'></h1>
+                <div id="content"></div>
+            </div> 
+
+            <div class="col-md-2">
+                <h4 id='create_date'></h4>
+                <h4 id='edit_date'></h4>
             </div>
         </div>
-
-        <div class="pure-u-1-3" id="note">
-            <div id="content"></div>
-        </div> 
-
-        <div class="pure-u-1-24" id="filler"></div>
-
-        <div class="pure-u-1-6" id="detail">
-            <h4 id='create_date'></h4>
-            <h4 id='edit_date'></h4>
-        </div>
     </div>
+
+    <script type="text/javascript">
+        // Collapsible Lists Snippet
+        $(function() {        
+            $('.list-group-item').on('click', function() {
+                $('.glyphicon', this)
+                .toggleClass('glyphicon-chevron-right')
+                .toggleClass('glyphicon-chevron-down');
+            });
+        });
+
+        // awesomplete + search fun!
+        var input = document.getElementById("autosearch") ;
+        var awesome = new Awesomplete(input);
+
+        function populate_search() {
+            $.getJSON('/api/search', function(response){
+                awesome.list = response;
+            });
+        };
+
+        window.addEventListener("awesomplete-selectcomplete", function(e){
+        // User made a selection from dropdown.
+            load_note('api/note/' + e.text.value);
+            $('#autosearch').val('');
+        }, false);
+
+        // loading the note's content
+        function load_note(callback_url) {
+            $.getJSON(callback_url, function( data ) {
+                // first load the content
+                $('#title').html(data['title']);
+                $('#content').html(data['content']);
+
+                var created = new Date(data['created']);
+                $('#create_date').html('Created: ' + created.toDateString());
+
+                var edited = new Date(data['updated']);
+                $('#edit_date').html('Changed: ' + edited.toDateString());
+
+                // Remove previous active and add new active
+                $('.active').removeClass('active');
+                $('#' + data['id']).addClass('active');
+
+                // add new classes
+                $('img').addClass('img-responsive center-block')
+                $('table').addClass('table table-hover table-bordered table-responsive'); 
+
+                // syntax highlighting!
+                $('code').each(function(index, element) {
+                    var lang = $(element).attr('class');
+                    if(typeof lang != "undefined") { 
+                        $(this).addClass('language-' + lang.split(" ")[1]);
+                    }
+                });
+                Prism.highlightAll();
+
+                // mathjax processing
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub, "content"]);
+
+            });
+        };
+
+        // call on load
+        populate_search();
+    </script>
 </body>
 </html>

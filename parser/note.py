@@ -10,7 +10,7 @@ class Note():
 
     def __init__(self, file=None):
         # initialize the important keys used elsewhere
-        self.file_name = ''
+        self.id = ''
         self.content = ''
         self.tags = ''
         self.title = ''

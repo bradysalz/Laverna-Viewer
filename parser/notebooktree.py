@@ -52,6 +52,18 @@ class NotebookTree():
     def print_tree(self):
         return self._build_tree_string(self._root, 0)
 
+    def get_all_notes(self):
+        return self._get_all_notes_helper(self.get_root_nb())
+
+    def _get_all_notes_helper(self, root_nb):
+        if len(root_nb.get_children()) == 0:
+            return root_nb.get_notes()
+
+        arr = []
+        for nb in root_nb.get_children():
+            arr += self._get_all_notes_helper(nb)
+        return arr
+
     def order_by_create(self):
         """Orders all notebooks and notes by create date"""
         self._order_all_by_created(self._root)
