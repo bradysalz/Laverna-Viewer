@@ -1,11 +1,18 @@
 import os
 from flaskapp import app
 from flask import render_template, send_file, jsonify
+from flask.ext.basicauth import BasicAuth
 from flaskapp.tree_utils import build_tree
-from flaskapp.config import MEDIA_PATH
+from flaskapp.config import MEDIA_PATH, AUTH_NAME, AUTH_PW
 
 tree = build_tree()
 tree.order_by_create()
+
+app.config['BASIC_AUTH_USERNAME'] = AUTH_NAME
+app.config['BASIC_AUTH_PASSWORD'] = AUTH_PW
+app.config['BASIC_AUTH_FORCE'] = True
+
+basic_auth = BasicAuth(app)
 
 
 @app.route('/')
