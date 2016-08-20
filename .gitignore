@@ -1,3 +1,7 @@
+# Sublime files
+*.sublime-workspace
+*.sublime-project
+
 # Local build testing
 data/
 config.py
