@@ -1,0 +1,512 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"ex",
+				"excluded	statement"
+			],
+			[
+				"bcakgrou",
+				"background-color"
+			],
+			[
+				"chid",
+				"children	statement"
+			],
+			[
+				"conten",
+				"contentchanged"
+			],
+			[
+				"add",
+				"add_tables"
+			],
+			[
+				"con",
+				"content	statement"
+			],
+			[
+				"std",
+				"stdout"
+			],
+			[
+				"P",
+				"PIPE	statement"
+			],
+			[
+				"call",
+				"callback_url"
+			],
+			[
+				"p",
+				"print_tree	function"
+			],
+			[
+				"co",
+				"content_format	statement"
+			],
+			[
+				"get",
+				"get_root_nb	function"
+			],
+			[
+				"no",
+				"note_id	param"
+			],
+			[
+				"nb",
+				"nb_id	param"
+			],
+			[
+				"note",
+				"notename"
+			],
+			[
+				"W",
+				"W293"
+			],
+			[
+				"notebook",
+				"notebooktree	module"
+			],
+			[
+				"tree",
+				"tree_utils	module"
+			],
+			[
+				"Note",
+				"NotebookTree"
+			],
+			[
+				"sty",
+				"stylesheet"
+			],
+			[
+				"pare",
+				"parentId	statement"
+			],
+			[
+				"curr",
+				"curr_nb	param"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"Packages/Python/Python.sublime-build",
+					""
+				],
+				[
+					"Packages/Python/Python.sublime-build",
+					"Syntax Check"
+				]
+			],
+			[
+				"Packages/Python/Python.sublime-build",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 72.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"pyth",
+				"Build With: Python3"
+			],
+			[
+				"biuld",
+				"Build With: Python3"
+			],
+			[
+				"python",
+				"Build With: Python3"
+			],
+			[
+				"build",
+				"Build: New Build System"
+			],
+			[
+				"lin",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"py",
+				"Set Syntax: Python"
+			],
+			[
+				"",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"lint",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"anaconda ",
+				"Anaconda: Disable linting on this file"
+			],
+			[
+				"ptho",
+				"Set Syntax: Python"
+			],
+			[
+				"late",
+				"Set Syntax: LaTeX"
+			],
+			[
+				"jin",
+				"Set Syntax: HTML (Jinja2)"
+			],
+			[
+				"jij",
+				"Set Syntax: Jinja2"
+			],
+			[
+				"wo",
+				"Word Wrap: Toggle"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown Extended"
+			],
+			[
+				"wra",
+				"Word Wrap: Toggle"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"JIJ",
+				"Set Syntax: HTML (Jinja2)"
+			],
+			[
+				"ji",
+				"Set Syntax: HTML (Jinja2)"
+			],
+			[
+				"ma",
+				"Set Syntax: Markdown"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"auto",
+				"AutoDocstring: All"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"w",
+				"Word Wrap: Toggle"
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"linst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 485.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/brady/Laverna-Viewer"
+	],
+	"file_history":
+	[
+		"/home/brady/Downloads/bom2csv.xsl",
+		"/home/brady/best-olympic/olympics_countries.csv",
+		"/home/brady/Dropbox/Research/ROI_Filter/PCB/Inductor_Functionality/Inductor_Functionality.csv",
+		"/home/brady/best-olympic/plotter.py",
+		"/home/brady/Downloads/circuitexample.tex",
+		"/home/brady/Laverna-Viewer/parser/notebook.py",
+		"/home/brady/Laverna-Viewer/flaskapp/templates/base.html",
+		"/home/brady/Laverna-Viewer/flaskapp/templates/body.html",
+		"/home/brady/Laverna-Viewer/README.md",
+		"/home/brady/Laverna-Viewer/flaskapp/views.py",
+		"/home/brady/Laverna-Viewer/flaskapp/tree_utils.py",
+		"/home/brady/Laverna-Viewer/parser/notebooktree.py",
+		"/home/brady/Laverna-Viewer/flaskapp/static/nested-list.css",
+		"/home/brady/Laverna-Viewer/flaskapp/config.py",
+		"/home/brady/Laverna-Viewer/run.py",
+		"/home/brady/Laverna-Viewer/parser/note.py",
+		"/home/brady/Laverna-Viewer/example_output.txt",
+		"/home/brady/Dropbox/Apps/Laverna/notes-db/notes/7da0e708-3c46-88aa-1abe-f7b6b476948a.json",
+		"/home/brady/Dropbox/Apps/Laverna/notes-db/notes/42526ca4-6f88-7300-ca94-18156fa60124.json",
+		"/home/brady/Downloads/testfile.md",
+		"/home/brady/Laverna-Viewer/flaskapp/__init__.py",
+		"/home/brady/.config/sublime-text-3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/home/brady/Laverna-Viewer/app/views.py",
+		"/home/brady/Laverna-Viewer/app/main.py",
+		"/home/brady/Laverna-Viewer/app/templates/body.html",
+		"/home/brady/Laverna-Viewer/app/templates/example.html",
+		"/home/brady/Laverna-Viewer/app/tree_utils.py",
+		"/home/brady/Laverna-Viewer/app/__init__.py",
+		"/home/brady/Laverna-Viewer/test/create_tree.py",
+		"/home/brady/Laverna-Viewer/app/config.py",
+		"/home/brady/Laverna-Viewer/.gitignore",
+		"/home/brady/Laverna-Viewer/app/templates/base.html",
+		"/home/brady/.config/sublime-text-3/Packages/User/Preferences.sublime-settings",
+		"/home/brady/.config/sublime-text-3/Packages/User/Python.sublime-settings",
+		"/home/brady/Laverna-Viewer/app/static/nested-list.css",
+		"/home/brady/Dropbox/Apps/Laverna/notes-db/notes/7ca664c5-7b3f-276c-ca5c-d2f45b17883f.json",
+		"/home/brady/Dropbox/Apps/Laverna/notes-db/notebooks/b26d1db9-963f-b450-fc88-33f1385b9cb6.json",
+		"/home/brady/Dropbox/Apps/Laverna/notes-db/notebooks/83335426-e25a-39ca-483f-2b7e30812618.json",
+		"/home/brady/Dropbox/Apps/Laverna/notes-db/notebooks/fa536f1b-e42f-9d31-4525-be02ad755422.json"
+	],
+	"find":
+	{
+		"height": 26.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"json_data",
+			"json_data'",
+			"data[",
+			"data",
+			"'",
+			"content",
+			"new_notebook_id",
+			"get_print"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"data",
+			"json_data['",
+			"json_data",
+			"print"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 34.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 211.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.unsaved_changes":
+	{
+		"height": 118.0
+	},
+	"pinned_build_system": "",
+	"project": "laverna-viewer.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"tree",
+				"flaskapp/tree_utils.py"
+			],
+			[
+				"vie",
+				"flaskapp/views.py"
+			],
+			[
+				"nest",
+				"flaskapp/static/nested-list.css"
+			],
+			[
+				"note",
+				"parser/notebooktree.py"
+			],
+			[
+				"nte",
+				"parser/notebook.py"
+			],
+			[
+				"con",
+				"flaskapp/config.py"
+			],
+			[
+				"run",
+				"run.py"
+			],
+			[
+				"bo",
+				"flaskapp/templates/body.html"
+			],
+			[
+				"no",
+				"parser/note.py"
+			],
+			[
+				"base",
+				"flaskapp/templates/base.html"
+			],
+			[
+				"ex",
+				"flaskapp/templates/example.html"
+			],
+			[
+				"bod",
+				"flaskapp/templates/body.html"
+			],
+			[
+				"tre",
+				"flaskapp/tree_utils.py"
+			],
+			[
+				"vi",
+				"flaskapp/views.py"
+			],
+			[
+				".gi",
+				".gitignore"
+			],
+			[
+				"cre",
+				"test/create_tree.py"
+			],
+			[
+				"neset",
+				"app/static/nested-list.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 284.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

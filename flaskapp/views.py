@@ -1,7 +1,7 @@
 import os
 from flaskapp import app
 from flask import render_template, send_file, jsonify
-from flask.ext.basicauth import BasicAuth
+from flask_basicauth import BasicAuth
 from flaskapp.tree_utils import build_tree
 from flaskapp.config import MEDIA_PATH, AUTH_NAME, AUTH_PW
 
