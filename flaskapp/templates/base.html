@@ -106,12 +106,6 @@
                 $('img').addClass('img-responsive center-block')
                 $('table').addClass('table table-hover table-bordered table-responsive'); 
 
-		        $('#content').each(function(){
-		            var $this = $(this);
-                    var t = $this.text();
-                    $this.html(t.replace('&lt','<').replace('&gt', '>'));
-                });
-
                 // syntax highlighting!
                 $('code').each(function(index, element) {
                     var lang = $(element).attr('class');
