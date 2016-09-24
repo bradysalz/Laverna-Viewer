@@ -40,8 +40,7 @@
 #detail, #toc {
     height: 100%;
     position: fixed;
-    /*right: 0px;    */
-    /*top: 0px;*/
+    overflow-y: scroll;
 }
 
 body {
